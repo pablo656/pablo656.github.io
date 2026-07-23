@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E7E4DC">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nota">
+<link rel="apple-touch-icon" href="data:image/png;base64,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AAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCvq5eAIM9v6xeAVM9PaxeAfBBd5fH+8vqRTCEgc97CQLYjgDA4OfzCAHYhgAoM/i5FiEA4/kRYJXhzzXZXzCeAChyOXML9hmM5hNAiQuZVXwSgHG8Aagw/FnJ/oNxBAAABAmAAk9fTGAfwigC4HQuXSaxH2EMAXAyly0T2ZcwggAAgCABcCpPWUxmf8JyAgAAggTAiTxdsQP7FJYSAAAQJAAAIEgAAECQADiN76rsxH6FZQQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggTAaZ4eVq8A/n/2KywjAAAgSAAAQJAAAIAgAXAi31XZgX0KSwkAAAgSAKfydMVk9icsJwAAIEgAnMxTFhPZlzCCADidy5ZJ7EcYQwAUuHSZwD6EUQQAAAQJgApPX6xk/8E4d5fH+8vqRXBjzy+rV0CFwQ9jeQNQ5FLmFuwzGE0AVLmcuSb7C8bzCQCfBPg8Bj9sQwDwnRDgvQx+2I4A4G2CgLcY+LA9AQAAQX4ECABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABA0H8BmSMXbLf7aywAAAAASUVORK5CYII=">
+<link rel="manifest" id="manifest">
+<title>Nota</title>
+<style>
+  :root{
+    --desk:#E7E4DC; --paper:#FBFAF6; --ink:#1A1726; --muted:#857F76;
+    --line:#DAD5CB; --line-2:#E8E3D9; --accent:#5B43F0; --accent-soft:#ECE9FF;
+    --cta:#FF5A36; --cta-edge:#C53C1C; --btn-edge:#D7D1C5; --ok:#1f7a4d; --err:#c0392b;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--desk);
+    height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+
+  /* App bar */
+  .appbar{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:10px 10px 10px 14px;
+    background:var(--desk);border-bottom:1px solid var(--line)}
+  .title{flex:1;min-width:0;font-weight:800;font-size:17px;letter-spacing:-.01em;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center;gap:8px}
+  .title .dot{width:9px;height:9px;border-radius:2px;background:var(--cta);flex:0 0 auto}
+  .ic{appearance:none;cursor:pointer;border:1px solid transparent;background:transparent;color:var(--ink);
+    width:40px;height:40px;border-radius:11px;font-size:19px;display:inline-flex;align-items:center;justify-content:center;
+    transition:background .12s ease}
+  .ic:hover{background:#efece5}
+  .ic:active{transform:translateY(1px)}
+
+  /* Editor */
+  .editorwrap{flex:1 1 auto;min-height:0;position:relative;background:var(--paper);border-bottom:1px solid var(--line)}
+  textarea{position:absolute;inset:0;width:100%;height:100%;border:0;outline:0;resize:none;background:transparent;color:var(--ink);
+    font-family:var(--mono);font-size:16.5px;line-height:1.6;padding:18px 16px 18px 52px;
+    background-image:linear-gradient(90deg,transparent 38px,rgba(255,90,54,.16) 38px,rgba(255,90,54,.16) 39.5px,transparent 39.5px);
+    -webkit-font-smoothing:antialiased}
+  textarea::placeholder{color:#b6b1a7}
+
+  /* Status bar */
+  .status{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:var(--desk);
+    font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .status .saved{display:inline-flex;align-items:center;gap:6px;color:var(--ok);font-weight:500}
+  .status .saved.dirty{color:var(--muted)}
+  .status .saved .led{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  /* Sheets */
+  .scrim{position:fixed;inset:0;background:rgba(26,23,38,.40);opacity:0;visibility:hidden;transition:opacity .2s;z-index:40}
+  .scrim.open{opacity:1;visibility:visible}
+  .sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);
+    border-radius:22px 22px 0 0;box-shadow:0 -10px 34px rgba(26,23,38,.20);
+    transform:translateY(101%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+    max-height:84vh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+  .sheet.open{transform:translateY(0)}
+  .grab{width:42px;height:4px;border-radius:3px;background:var(--line);margin:10px auto 2px;flex:0 0 auto}
+  .sheet h3{margin:8px 18px 4px;font-size:16px;font-weight:700;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between}
+  .sheet h3 .undo{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;
+    font-size:13px;font-weight:600;padding:6px 11px;cursor:pointer;font-family:var(--sans)}
+  .sheet h3 .undo:disabled{opacity:.4}
+  .sheetbody{overflow:auto;padding:6px 14px 18px}
+
+  /* Menu list */
+  .menu{display:flex;flex-direction:column;gap:2px;padding:4px 10px 16px}
+  .menu button{appearance:none;cursor:pointer;text-align:left;border:0;background:transparent;color:var(--ink);
+    font-family:var(--sans);font-size:16px;font-weight:500;padding:14px 12px;border-radius:12px;
+    display:flex;align-items:center;gap:13px;transition:background .12s ease}
+  .menu button:hover{background:#f1eee7}
+  .menu button:active{background:#e9e5dd}
+  .menu .ico{font-size:19px;width:24px;text-align:center;flex:0 0 auto}
+
+  /* Tabs + grid (formato) */
+  .tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 4px 4px;scrollbar-width:none;flex:0 0 auto}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);
+    font-family:var(--sans);font-weight:600;font-size:14px;padding:9px 15px;border-radius:999px;white-space:nowrap;transition:all .14s ease}
+  .tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:12px 4px 4px}
+  .act{appearance:none;cursor:pointer;text-align:left;background:#fff;border:1px solid var(--btn-edge);border-radius:13px;
+    box-shadow:0 3px 0 var(--btn-edge);padding:13px 12px;color:var(--ink);font-family:var(--sans);font-weight:500;font-size:15px;
+    transition:transform .04s,box-shadow .04s,background .12s;display:flex;align-items:center;gap:10px;min-height:50px}
+  .act:active{transform:translateY(3px);box-shadow:0 0 0 var(--btn-edge)}
+  .act .glyph{font-family:var(--mono);color:var(--accent);font-size:13px;opacity:.85;flex:0 0 auto;min-width:18px}
+  .act.styled{font-size:17px;justify-content:center;text-align:center}
+
+  /* Export */
+  .namebox{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 12px;margin:8px 0 12px}
+  .namebox span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .namebox input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:var(--mono);font-size:16px;color:var(--ink);padding:13px 0}
+  .namebox .ext{color:var(--accent);font-weight:600}
+  .fmts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .fmt{appearance:none;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:var(--mono);
+    font-weight:500;font-size:14px;padding:9px 14px;border-radius:10px;transition:all .12s}
+  .fmt[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .opt{display:flex;align-items:center;gap:10px;margin:0 2px 12px;font-size:13.5px;color:var(--ink);cursor:pointer}
+  .opt input{width:18px;height:18px;accent-color:var(--accent);flex:0 0 auto}
+  .steps{margin:2px 2px 14px;font-size:12.5px;color:var(--muted)}
+  .steps summary{cursor:pointer;font-weight:600;color:var(--ink);padding:6px 0}
+  .steps ol{margin:4px 0 0;padding-left:20px;line-height:1.6}
+  .brk{display:block;margin-top:4px;font-family:var(--mono);font-size:11.5px;color:var(--accent);word-break:break-all}
+  .hint{margin:0 2px 14px;font-size:12.5px;line-height:1.5;color:var(--muted);font-family:var(--sans)}
+  .hint b{color:var(--ink);font-weight:600}
+  .sheetbtns{display:flex;gap:10px}
+  .btn{flex:1;cursor:pointer;border:0;border-radius:14px;font-family:var(--sans);font-weight:700;font-size:15.5px;
+    padding:15px;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .05s,box-shadow .05s}
+  .btn-copy{background:#fff;color:var(--ink);border:1px solid var(--btn-edge);box-shadow:0 4px 0 var(--btn-edge)}
+  .btn-copy:active{transform:translateY(4px);box-shadow:0 0 0 var(--btn-edge)}
+  .btn-save{flex:1.25;background:var(--cta);color:#fff;box-shadow:0 4px 0 var(--cta-edge)}
+  .btn-save:active{transform:translateY(4px);box-shadow:0 0 0 var(--cta-edge)}
+  .btn.done{background:var(--ok)!important;color:#fff!important;box-shadow:0 4px 0 #15583a!important;border-color:#15583a!important}
+
+  /* Toast */
+  .toast{position:fixed;left:50%;bottom:calc(74px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-family:var(--sans);font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px;
+    box-shadow:0 8px 24px rgba(26,23,38,.28);opacity:0;visibility:hidden;transition:all .2s;z-index:60;max-width:88vw;text-align:center}
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast.err{background:var(--err)}
+
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:10px}
+  textarea:focus-visible{outline:none}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (max-width:360px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+  <div class="appbar">
+    <div class="title" id="title"><span class="dot"></span><span id="titleText">Nota nueva</span></div>
+    <button class="ic" id="openBtn" title="Abrir" aria-label="Abrir archivo">📂</button>
+    <button class="ic" id="saveBtn" title="Guardar" aria-label="Guardar">💾</button>
+    <button class="ic" id="moreBtn" title="Más" aria-label="Más opciones">⋯</button>
+  </div>
+
+  <div class="editorwrap">
+    <textarea id="ta" placeholder="Escribe aquí o abre un archivo de OneDrive…" spellcheck="false" autocapitalize="sentences"></textarea>
+  </div>
+
+  <div class="status">
+    <div id="counts">0 palabras · 0 caracteres</div>
+    <div class="saved" id="saved"><span class="led"></span><span id="savedText">Listo</span></div>
+  </div>
+
+  <input type="file" id="file" accept=".txt,.md,.markdown,.csv,.tsv,.json,.html,.htm,.xml,.log,.rtf,text/*,application/json" hidden>
+
+  <div class="scrim" id="scrim"></div>
+
+  <!-- Menú -->
+  <div class="sheet" id="menuSheet">
+    <div class="grab"></div>
+    <h3>Menú</h3>
+    <div class="menu" id="menu">
+      <button data-act="new"><span class="ico">📄</span>Nueva nota</button>
+      <button data-act="open"><span class="ico">📂</span>Abrir archivo (OneDrive, móvil…)</button>
+      <button data-act="format"><span class="ico">✨</span>Formato de texto…</button>
+      <button data-act="saveas"><span class="ico">💾</span>Guardar como…</button>
+      <button data-act="onedrive"><span class="ico">☁</span>OneDrive…</button>
+      <button data-act="share"><span class="ico">🔗</span>Guardar / Compartir</button>
+      <button data-act="install" id="menuInstall"><span class="ico">⬇</span>Instalar como app</button>
+    </div>
+  </div>
+
+  <!-- Formato -->
+  <div class="sheet" id="toolsSheet">
+    <div class="grab"></div>
+    <h3>Formato de texto <button class="undo" id="undo" disabled>↶ Deshacer</button></h3>
+    <div class="sheetbody">
+      <div class="tabs" id="tabs" role="tablist" aria-label="Herramientas"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <!-- Guardar como -->
+  <div class="sheet" id="exportSheet">
+    <div class="grab"></div>
+    <h3>Guardar como</h3>
+    <div class="sheetbody">
+      <div class="namebox">
+        <span>nombre:</span>
+        <input id="name" value="Nota" spellcheck="false" autocapitalize="off" aria-label="Nombre del archivo">
+        <span class="ext" id="extLabel">.txt</span>
+      </div>
+      <div class="fmts" id="fmts" role="group" aria-label="Formato"></div>
+      <label class="opt"><input type="checkbox" id="txtFallback" checked> Compartir como .txt si el sistema bloquea el formato</label>
+      <p class="hint" id="hint"></p>
+      <div class="sheetbtns">
+        <button class="btn btn-copy" id="dl">⬇ Descargar</button>
+        <button class="btn btn-save" id="shareSave">💾 Elegir dónde guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OneDrive -->
+  <div class="sheet" id="odSheet">
+    <div class="grab"></div>
+    <h3>OneDrive</h3>
+    <div class="sheetbody">
+      <p class="hint" id="odHint"></p>
+      <div class="namebox"><span>id app:</span><input id="odClient" spellcheck="false" autocapitalize="off" placeholder="00000000-0000-0000-0000-000000000000" aria-label="Id de aplicación"></div>
+      <div class="namebox"><span>carpeta:</span><input id="odFolder" spellcheck="false" autocapitalize="off" value="Notas" aria-label="Carpeta de OneDrive"></div>
+      <details class="steps">
+        <summary>Cómo conseguir el id (5 min)</summary>
+        <ol>
+          <li>Entra en <b>portal.azure.com</b> → Registros de aplicaciones → Nuevo registro.</li>
+          <li>Nombre: Nota. Cuentas admitidas: <b>cualquier directorio y cuentas personales</b>.</li>
+          <li>Plataforma: <b>Aplicación de página única (SPA)</b>. URI de redirección, exactamente esta:<span class="brk" id="odRedirect"></span></li>
+          <li>Registrar → copia el <b>Id. de aplicación (cliente)</b> y pégalo arriba.</li>
+          <li>Permisos de API → Microsoft Graph → Delegados → <b>Files.ReadWrite</b>.</li>
+        </ol>
+      </details>
+      <div class="sheetbtns">
+        <button class="btn btn-copy" id="odCopy">⧉ Copiar URL</button>
+        <button class="btn btn-save" id="odConnect">Conectar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  /* ===== motor de estilos unicode (idéntico, ya probado) ===== */
+  function mapByRanges(ch,ranges){const cp=ch.codePointAt(0);for(const r of ranges){if(r.exc&&Object.prototype.hasOwnProperty.call(r.exc,ch))return r.exc[ch];if(cp>=r.from&&cp<=r.to)return String.fromCodePoint(r.base+(cp-r.from));}return ch;}
+  function makeStyler(ranges){return s=>{let o="";for(const ch of s)o+=mapByRanges(ch,ranges);return o;};}
+  const A=0x41,Z=0x5A,a=0x61,z=0x7A,n0=0x30,n9=0x39;
+  const bold=makeStyler([{from:A,to:Z,base:0x1D5D4},{from:a,to:z,base:0x1D5EE},{from:n0,to:n9,base:0x1D7EC}]);
+  const italic=makeStyler([{from:A,to:Z,base:0x1D608},{from:a,to:z,base:0x1D622}]);
+  const bolditalic=makeStyler([{from:A,to:Z,base:0x1D63C},{from:a,to:z,base:0x1D656}]);
+  const mono=makeStyler([{from:A,to:Z,base:0x1D670},{from:a,to:z,base:0x1D68A},{from:n0,to:n9,base:0x1D7F6}]);
+  const dbl=makeStyler([{from:A,to:Z,base:0x1D538,exc:{C:"ℂ",H:"ℍ",N:"ℕ",P:"ℙ",Q:"ℚ",R:"ℝ",Z:"ℤ"}},{from:a,to:z,base:0x1D552},{from:n0,to:n9,base:0x1D7D8}]);
+  const script=makeStyler([{from:A,to:Z,base:0x1D49C,exc:{B:"ℬ",E:"ℰ",F:"ℱ",H:"ℋ",I:"ℐ",L:"ℒ",M:"ℳ",R:"ℛ"}},{from:a,to:z,base:0x1D4B6,exc:{e:"ℯ",g:"ℊ",o:"ℴ"}}]);
+  const fraktur=makeStyler([{from:A,to:Z,base:0x1D504,exc:{C:"ℭ",H:"ℌ",I:"ℑ",R:"ℜ",Z:"ℨ"}},{from:a,to:z,base:0x1D51E}]);
+  const circled=makeStyler([{from:A,to:Z,base:0x24B6},{from:a,to:z,base:0x24D0},{from:0x31,to:0x39,base:0x2460,exc:{"0":"⓪"}}]);
+  const wide=makeStyler([{from:0x21,to:0x7E,base:0xFF01},{from:0x20,to:0x20,base:0x3000}]);
+  const SMALL={a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",f:"ꜰ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",q:"ǫ",r:"ʀ",s:"ꜱ",t:"ᴛ",u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"};
+  function smallcaps(s){let o="";for(const ch of s.toLowerCase())o+=SMALL[ch]||ch;return o;}
+  function strike(s){let o="";for(const ch of s)o+=ch+"\u0336";return o;}
+  function underline(s){let o="";for(const ch of s)o+=ch+"\u0332";return o;}
+  const FLIP={"a":"ɐ","b":"q","c":"ɔ","d":"p","e":"ǝ","f":"ɟ","g":"ƃ","h":"ɥ","i":"ı","j":"ɾ","k":"ʞ","l":"l","m":"ɯ","n":"u","o":"o","p":"d","q":"b","r":"ɹ","s":"s","t":"ʇ","u":"n","v":"ʌ","w":"ʍ","x":"x","y":"ʎ","z":"z","A":"∀","B":"𐐒","C":"Ɔ","D":"◖","E":"Ǝ","F":"Ⅎ","G":"⅁","H":"H","I":"I","J":"ſ","K":"⋊","L":"˥","M":"W","N":"N","O":"O","P":"Ԁ","Q":"Ò","R":"ᴚ","S":"S","T":"⊥","U":"∩","V":"Λ","W":"M","X":"X","Y":"⅄","Z":"Z","0":"0","1":"Ɩ","2":"ᄅ","3":"Ɛ","4":"ㄣ","5":"ϛ","6":"9","7":"ㄥ","8":"8","9":"6",".":"˙",",":"'","?":"¿","!":"¡","'":",","(":")",")":"(","[":"]","]":"[","{":"}","}":"{","<":">",">":"<","_":"‾","&":"⅋"};
+  function flip(s){let o="";for(const ch of s)o+=(FLIP[ch]||ch);return Array.from(o).reverse().join("");}
+  const REVERSE=new Map();
+  (function(){const src="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(const fn of [bold,italic,bolditalic,mono,dbl,script,fraktur,circled,wide,smallcaps]){for(const ch of src){const st=fn(ch);if(Array.from(st).length===1&&st!==ch&&!REVERSE.has(st))REVERSE.set(st,ch);}}})();
+  function toPlain(s){let o="";for(const ch of s){const cp=ch.codePointAt(0);if(cp>=0x0300&&cp<=0x036F)continue;o+=REVERSE.get(ch)||ch;}return o;}
+
+  const upper=s=>s.toUpperCase(),lower=s=>s.toLowerCase();
+  const title=s=>s.replace(/[\p{L}\p{N}][\p{L}\p{N}'’]*/gu,w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase());
+  const sentence=s=>s.toLowerCase().replace(/(^\s*[\p{L}])|([.!?…]\s+[\p{L}])|([¡¿]\s*[\p{L}])/gu,m=>m.toUpperCase());
+  function alternate(s){let o="",up=false;for(const ch of s){if(/\p{L}/u.test(ch)){o+=up?ch.toUpperCase():ch.toLowerCase();up=!up;}else o+=ch;}return o;}
+  function swap(s){let o="";for(const ch of s){const u=ch.toUpperCase();o+=(ch===u)?ch.toLowerCase():u;}return o;}
+  const collapseSpaces=s=>s.replace(/[^\S\n]+/g," ").replace(/ *\n */g,"\n").replace(/\n{3,}/g,"\n\n");
+  const joinLines=s=>s.split(/\n+/).map(l=>l.trim()).filter(Boolean).join(" ");
+  const trimAll=s=>s.split("\n").map(l=>l.trim()).join("\n").trim();
+  const stripAccents=s=>s.normalize("NFD").replace(/[\u0300-\u036F]/g,"");
+  const stripPunct=s=>s.replace(/[^\p{L}\p{N}\s]/gu,"").replace(/[^\S\n]+/g," ");
+  const stripDigits=s=>s.replace(/\p{N}/gu,"");
+  const stripEmoji=s=>s.replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu,"").replace(/[^\S\n]{2,}/g," ");
+  const reverseText=s=>Array.from(s).reverse().join("");
+  const reverseLines=s=>s.split("\n").reverse().join("\n");
+  const sortAsc=s=>s.split("\n").sort((x,y)=>x.localeCompare(y,"es",{numeric:true})).join("\n");
+  const sortDesc=s=>s.split("\n").sort((x,y)=>y.localeCompare(x,"es",{numeric:true})).join("\n");
+  function dedupeLines(s){const seen=new Set(),out=[];for(const l of s.split("\n")){if(!seen.has(l)){seen.add(l);out.push(l);}}return out.join("\n");}
+  const dropEmpty=s=>s.split("\n").filter(l=>l.trim()!=="").join("\n");
+  const numberLines=s=>s.split("\n").map((l,i)=>`${i+1}. ${l}`).join("\n");
+  function b64enc(s){const b=new TextEncoder().encode(s);let bin="";b.forEach(x=>bin+=String.fromCharCode(x));return btoa(bin);}
+  function b64dec(s){try{const bin=atob(s.replace(/\s+/g,""));const b=Uint8Array.from(bin,c=>c.charCodeAt(0));return new TextDecoder().decode(b);}catch(e){throw new Error("Base64 no válido");}}
+  const urlenc=s=>encodeURIComponent(s);
+  function urldec(s){try{return decodeURIComponent(s.replace(/\+/g," "));}catch(e){throw new Error("URL no válida");}}
+  const htmlEscape=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  const GROUPS=[
+    {id:"mayus",name:"Mayúsculas",actions:[{label:"MAYÚSCULAS",glyph:"AB",fn:upper},{label:"minúsculas",glyph:"ab",fn:lower},{label:"Capitalizar",glyph:"Ab",fn:title},{label:"Tipo oración",glyph:"A.",fn:sentence},{label:"aLtErNo",glyph:"aB",fn:alternate},{label:"Invertir May/min",glyph:"↕",fn:swap}]},
+    {id:"estilos",name:"Estilos",styled:true,actions:[{name:"Negrita",fn:bold},{name:"Itálica",fn:italic},{name:"Negr. curs.",fn:bolditalic},{name:"Mono",fn:mono},{name:"Cursiva",fn:script},{name:"Fraktura",fn:fraktur},{name:"Doble",fn:dbl},{name:"Burbuja",fn:circled},{name:"Versalitas",fn:smallcaps},{name:"Tachado",fn:strike},{name:"Subrayado",fn:underline},{name:"Ancho",fn:wide},{name:"Voltear",fn:flip}]},
+    {id:"limpiar",name:"Limpiar",actions:[{label:"Espacios extra",glyph:"⇥",fn:collapseSpaces},{label:"Sin saltos",glyph:"¶",fn:joinLines},{label:"Recortar",glyph:"⌫",fn:trimAll},{label:"Sin acentos",glyph:"á",fn:stripAccents},{label:"Sin puntuación",glyph:".,",fn:stripPunct},{label:"Sin números",glyph:"#",fn:stripDigits},{label:"Sin emojis",glyph:"☺",fn:stripEmoji}]},
+    {id:"orden",name:"Orden",actions:[{label:"Invertir texto",glyph:"⇄",fn:reverseText},{label:"Invertir líneas",glyph:"↑↓",fn:reverseLines},{label:"Ordenar A→Z",glyph:"↓",fn:sortAsc},{label:"Ordenar Z→A",glyph:"↑",fn:sortDesc},{label:"Sin duplicados",glyph:"≠",fn:dedupeLines},{label:"Sin líneas vacías",glyph:"≡",fn:dropEmpty},{label:"Numerar líneas",glyph:"1.",fn:numberLines}]},
+    {id:"codigo",name:"Código",actions:[{label:"Base64 codificar",glyph:"→",fn:b64enc},{label:"Base64 decodificar",glyph:"←",fn:b64dec},{label:"URL codificar",glyph:"%",fn:urlenc},{label:"URL decodificar",glyph:"%",fn:urldec},{label:"Escapar HTML",glyph:"&",fn:htmlEscape}]},
+  ];
+
+  /* ===== exportar ===== */
+  function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+  function toHTML(text,t){const body=text.split(/\n{2,}/).map(p=>"    <p>"+esc(p).replace(/\n/g,"<br>\n      ")+"</p>").join("\n");return '<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>'+esc(t)+"</title>\n</head>\n<body>\n"+(body||"    <p></p>")+"\n</body>\n</html>\n";}
+  function toCSV(text){const q=v=>/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;const hasTab=text.indexOf("\t")>=0;return text.split("\n").map(line=>(hasTab?line.split("\t"):[line]).map(q).join(",")).join("\r\n");}
+  function toJSON(text){const t=text.trim();if(t){try{return JSON.stringify(JSON.parse(t),null,2);}catch(e){}}return JSON.stringify(text.split("\n"),null,2);}
+  const FORMATS=["txt","md","csv","json","html"];
+  function formatContent(text,fmt,t){switch(fmt){case "md":return{data:text,mime:"text/markdown",ext:"md"};case "csv":return{data:toCSV(text),mime:"text/csv",ext:"csv"};case "json":return{data:toJSON(text),mime:"application/json",ext:"json"};case "html":return{data:toHTML(text,t),mime:"text/html",ext:"html"};default:return{data:text,mime:"text/plain",ext:"txt"};}}
+
+  /* ===== DOM ===== */
+  const $=id=>document.getElementById(id);
+  const ta=$("ta"),counts=$("counts"),savedText=$("savedText"),savedEl=$("saved");
+  const titleText=$("titleText"),fileInput=$("file"),nameInput=$("name"),extLabel=$("extLabel");
+  const scrim=$("scrim"),menuSheet=$("menuSheet"),toolsSheet=$("toolsSheet"),exportSheet=$("exportSheet"),odSheet=$("odSheet");
+  const tabsEl=$("tabs"),gridEl=$("grid"),fmtsEl=$("fmts"),undoBtn=$("undo"),toastEl=$("toast");
+
+  let active=GROUPS[0].id, fmt="txt", history=[];
+
+  /* almacenamiento opcional (funciona como app instalada; en vista previa se ignora sin fallar) */
+  let storeOK=false; try{const k="__t_probe";localStorage.setItem(k,"1");localStorage.removeItem(k);storeOK=true;}catch(e){storeOK=false;}
+  const SKEY="nota_texto_v1", NKEY="nota_nombre_v1";
+  let saveTimer=null;
+  function persist(){ if(!storeOK)return; try{localStorage.setItem(SKEY,ta.value);localStorage.setItem(NKEY,nameInput.value);savedText.textContent="Guardado";savedEl.classList.remove("dirty");}catch(e){} }
+  function markDirty(){ if(storeOK){savedText.textContent="Guardando…";savedEl.classList.add("dirty");} clearTimeout(saveTimer); saveTimer=setTimeout(persist,500); }
+
+  let toastTimer=null;
+  function toast(msg,isErr){toastEl.textContent=msg;toastEl.classList.toggle("err",!!isErr);toastEl.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove("show"),1600);}
+
+  function updateCounts(){const s=ta.value;const words=(s.match(/\S+/g)||[]).length;const chars=Array.from(s).length;counts.textContent=`${words} ${words===1?"palabra":"palabras"} · ${chars} car · ${s===""?0:s.split("\n").length} lín`;}
+  function setText(v){ta.value=v;updateCounts();}
+  function pushHistory(){history.push(ta.value);if(history.length>80)history.shift();undoBtn.disabled=false;}
+  function setName(v){nameInput.value=v;titleText.textContent=v||"Nota nueva";}
+
+  function apply(group,action){
+    const source=group.styled?toPlain(ta.value):ta.value;
+    if(ta.value===""&&group.id!=="estilos"){toast("Escribe o abre algo primero",true);return;}
+    try{const r=action.fn(source);pushHistory();setText(r);markDirty();toast("✓ "+(action.name||action.label));}
+    catch(err){toast((action.name||action.label)+": "+err.message,true);}
+  }
+
+  /* construir pestañas + acciones */
+  GROUPS.forEach(g=>{const b=document.createElement("button");b.className="tab";b.textContent=g.name;b.setAttribute("role","tab");b.setAttribute("aria-selected",g.id===active?"true":"false");b.addEventListener("click",()=>{active=g.id;[...tabsEl.children].forEach((x,i)=>x.setAttribute("aria-selected",GROUPS[i].id===active?"true":"false"));buildGrid();});tabsEl.appendChild(b);});
+  function buildGrid(){const group=GROUPS.find(g=>g.id===active);gridEl.innerHTML="";group.actions.forEach(action=>{const b=document.createElement("button");b.className="act"+(group.styled?" styled":"");if(group.styled){b.textContent=action.fn(action.name);b.setAttribute("aria-label","Estilo "+action.name);}else b.innerHTML=`<span class="glyph">${action.glyph||""}</span><span>${action.label}</span>`;b.addEventListener("click",()=>apply(group,action));gridEl.appendChild(b);});}
+  FORMATS.forEach(f=>{const b=document.createElement("button");b.className="fmt";b.textContent="."+f;b.setAttribute("aria-pressed",f===fmt?"true":"false");b.addEventListener("click",()=>{fmt=f;extLabel.textContent="."+f;[...fmtsEl.children].forEach((x,i)=>x.setAttribute("aria-pressed",FORMATS[i]===fmt?"true":"false"));});fmtsEl.appendChild(b);});
+
+  /* sheets */
+  function closeSheets(){scrim.classList.remove("open");document.querySelectorAll(".sheet").forEach(s=>s.classList.remove("open"));}
+  function openSheet(el){closeSheets();scrim.classList.add("open");el.classList.add("open");}
+  scrim.addEventListener("click",closeSheets);
+  document.querySelectorAll(".grab").forEach(g=>g.addEventListener("click",closeSheets));
+  $("moreBtn").addEventListener("click",()=>openSheet(menuSheet));
+
+  $("menu").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const act=b.dataset.act;
+    if(act==="new"){pushHistory();setText("");setName("Nota nueva");markDirty();closeSheets();toast("Nueva nota");}
+    else if(act==="open"){closeSheets();fileInput.click();}
+    else if(act==="format"){openSheet(toolsSheet);}
+    else if(act==="saveas"){openSheet(exportSheet);}
+    else if(act==="onedrive"){openSheet(odSheet);}
+    else if(act==="share"){closeSheets();smartSave();}
+    else if(act==="install"){closeSheets();doInstall();}
+  });
+
+  /* abrir archivo */
+  $("openBtn").addEventListener("click",()=>fileInput.click());
+  fileInput.addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{pushHistory();setText(String(reader.result||""));setName(f.name.replace(/\.[^.]+$/,"")||"Nota");markDirty();toast("Abierto: "+f.name);};reader.onerror=()=>toast("No se pudo leer el archivo",true);reader.readAsText(f);e.target.value="";});
+
+  /* ===== guardar =====
+     Orden: 1) selector del sistema (eliges carpeta)  2) compartir  3) descarga */
+  function cleanName(){return (nameInput.value||"").replace(/\.[^.]+$/,"").replace(/[\\/:*?"<>|\u0000-\u001F]+/g,"_").trim()||"Nota";}
+
+  const PICKER_TYPES={
+    txt :{description:"Texto",    accept:{"text/plain":[".txt"]}},
+    md  :{description:"Markdown", accept:{"text/markdown":[".md",".markdown"]}},
+    csv :{description:"CSV",      accept:{"text/csv":[".csv"]}},
+    json:{description:"JSON",     accept:{"application/json":[".json"]}},
+    html:{description:"HTML",     accept:{"text/html":[".html",".htm"]}}
+  };
+  const hasPicker=typeof window.showSaveFilePicker==="function";
+
+  function flash(btn,label){if(!btn)return;btn.classList.add("done");const t=btn.textContent;btn.textContent=label;setTimeout(()=>{btn.classList.remove("done");btn.textContent=t;},1400);}
+  function payload(){const t=cleanName();const {data,mime,ext}=formatContent(ta.value,fmt,t);
+    return {blob:new Blob([data],{type:mime+";charset=utf-8"}),filename:t+"."+ext,mime,ext};}
+
+  /* 1) selector real del sistema: carpeta + nombre, con cualquier formato */
+  async function savePicker(viaButton){
+    const p=payload();
+    const handle=await window.showSaveFilePicker({suggestedName:p.filename,types:[PICKER_TYPES[p.ext]||PICKER_TYPES.txt]});
+    const w=await handle.createWritable();await w.write(p.blob);await w.close();
+    flash(viaButton,"¡Guardado!");toast("Guardado: "+(handle.name||p.filename));
+  }
+
+  /* 2) compartir: el sistema filtra por tipo de archivo, así que probamos varias combinaciones */
+  async function shareFile(viaButton){
+    if(!navigator.share||!navigator.canShare)return "no";
+    const p=payload(),base=p.filename.replace(/\.[^.]+$/,"");
+    const attempts=[{name:p.filename,type:p.mime},{name:p.filename,type:"text/plain"},{name:p.filename,type:"application/octet-stream"}];
+    /* .md y .json están vetados por el navegador: mismo contenido, extensión que sí pasa */
+    if(p.ext!=="txt"&&$("txtFallback").checked)attempts.push({name:base+".txt",type:"text/plain",alias:true});
+    for(const at of attempts){
+      const file=new File([p.blob],at.name,{type:at.type});
+      let ok=false;try{ok=navigator.canShare({files:[file]});}catch(e){ok=false;}
+      if(!ok)continue;
+      try{await navigator.share({files:[file],title:at.name});flash(viaButton,"¡Enviado!");
+        toast(at.alias?("Enviado como "+at.name+" · el navegador veta ."+p.ext):"Compartido");return "ok";}
+      catch(err){return (err&&err.name==="AbortError")?"cancel":"no";}
+    }
+    return "blocked";
+  }
+
+  /* 3) descarga directa */
+  function downloadFile(viaButton,msg){
+    const p=payload();const url=URL.createObjectURL(p.blob);const aEl=document.createElement("a");
+    aEl.href=url;aEl.download=p.filename;document.body.appendChild(aEl);aEl.click();aEl.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    flash(viaButton,"¡Descargado!");toast(msg||("Descargado: "+p.filename));
+  }
+
+  async function smartSave(viaButton){
+    if(ta.value===""){toast("Escribe algo antes de guardar",true);return;}
+    if(odToken()){try{await odUpload(viaButton);}catch(e){toast("OneDrive: "+e.message,true);}return;}
+    if(hasPicker){
+      try{await savePicker(viaButton);return;}
+      catch(err){if(err&&err.name==="AbortError")return;}
+    }
+    const r=await shareFile(viaButton);
+    if(r==="ok"||r==="cancel")return;
+    downloadFile(viaButton,r==="blocked"?("Este dispositivo no comparte ."+fmt+" · guardado en Descargas"):null);
+  }
+
+  $("saveBtn").addEventListener("click",()=>smartSave());
+  $("shareSave").addEventListener("click",e=>smartSave(e.currentTarget));
+  $("dl").addEventListener("click",e=>{if(ta.value===""){toast("Escribe algo antes de guardar",true);return;}downloadFile(e.currentTarget);});
+
+  /* ===== OneDrive (Microsoft Graph) ===== */
+  const OD_ID="od_client_v1", OD_TOK="od_token_v1", OD_DIR="od_folder_v1";
+  const REDIRECT=location.origin+location.pathname;
+  const AUTH_URL="https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
+  const TOKEN_URL="https://login.microsoftonline.com/common/oauth2/v2.0/token";
+  const GRAPH="https://graph.microsoft.com/v1.0";
+  const SCOPE="Files.ReadWrite offline_access";
+
+  function lsGet(k){try{return localStorage.getItem(k)||"";}catch(e){return "";}}
+  function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
+  function odClient(){return lsGet(OD_ID).trim();}
+  function odFolder(){return (lsGet(OD_DIR)||"Notas").replace(/^\/+|\/+$/g,"").trim();}
+  function odToken(){try{const t=JSON.parse(lsGet(OD_TOK)||"null");return (t&&t.refresh_token)?t:null;}catch(e){return null;}}
+  function odStore(t){t.expires_at=Date.now()+(((t.expires_in||3600)-120)*1000);lsSet(OD_TOK,JSON.stringify(t));}
+
+  function b64url(bytes){let bin="";bytes.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");}
+  function randStr(n){const a=new Uint8Array(n);crypto.getRandomValues(a);return b64url(a);}
+  async function challengeFor(v){const buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(v));return b64url(new Uint8Array(buf));}
+
+  async function odStartLogin(){
+    const cid=odClient();
+    if(!cid){toast("Pega primero el id de la app",true);return;}
+    if(!window.isSecureContext){toast("Necesita https para conectar",true);return;}
+    persist();
+    const verifier=randStr(48), state=randStr(12);
+    try{sessionStorage.setItem("od_v",verifier);sessionStorage.setItem("od_s",state);}catch(e){toast("El navegador bloquea el almacenamiento",true);return;}
+    const u=new URL(AUTH_URL);
+    u.searchParams.set("client_id",cid);
+    u.searchParams.set("response_type","code");
+    u.searchParams.set("redirect_uri",REDIRECT);
+    u.searchParams.set("scope",SCOPE);
+    u.searchParams.set("code_challenge",await challengeFor(verifier));
+    u.searchParams.set("code_challenge_method","S256");
+    u.searchParams.set("state",state);
+    location.assign(u.toString());
+  }
+
+  async function odFinishLogin(){
+    const q=new URLSearchParams(location.search);
+    if(!q.get("code")&&!q.get("error"))return;
+    const clean=()=>{try{history.replaceState({},"",REDIRECT);}catch(e){}};
+    if(q.get("error")){toast("OneDrive: "+(q.get("error_description")||q.get("error")),true);clean();return;}
+    let v="",st="";try{v=sessionStorage.getItem("od_v")||"";st=sessionStorage.getItem("od_s")||"";}catch(e){}
+    if(!v||q.get("state")!==st){clean();return;}
+    try{
+      const body=new URLSearchParams({client_id:odClient(),grant_type:"authorization_code",code:q.get("code"),redirect_uri:REDIRECT,code_verifier:v});
+      const r=await fetch(TOKEN_URL,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body});
+      const t=await r.json();
+      if(!r.ok)throw new Error(t.error_description||t.error||("HTTP "+r.status));
+      odStore(t);toast("OneDrive conectado ✓");
+    }catch(e){toast("OneDrive: "+e.message,true);}
+    try{sessionStorage.removeItem("od_v");sessionStorage.removeItem("od_s");}catch(e){}
+    clean();updateSaveUI();
+  }
+
+  async function odAccess(){
+    const t=odToken();if(!t)return null;
+    if(t.access_token&&t.expires_at>Date.now())return t.access_token;
+    const body=new URLSearchParams({client_id:odClient(),grant_type:"refresh_token",refresh_token:t.refresh_token,scope:SCOPE});
+    const r=await fetch(TOKEN_URL,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body});
+    const n=await r.json();
+    if(!r.ok){lsDel(OD_TOK);updateSaveUI();throw new Error("sesión caducada, vuelve a conectar");}
+    if(!n.refresh_token)n.refresh_token=t.refresh_token;
+    odStore(n);return n.access_token;
+  }
+
+  const seg=p=>p.split("/").filter(Boolean).map(encodeURIComponent).join("/");
+  async function odEnsureFolder(tok,path){
+    const parts=path.split("/").filter(Boolean),acc=[];
+    for(const name of parts){
+      const url=GRAPH+(acc.length?"/me/drive/root:/"+seg(acc.join("/"))+":/children":"/me/drive/root/children");
+      const r=await fetch(url,{method:"POST",headers:{Authorization:"Bearer "+tok,"Content-Type":"application/json"},
+        body:JSON.stringify({name,folder:{},"@microsoft.graph.conflictBehavior":"fail"})});
+      if(!r.ok&&r.status!==409)throw new Error("no se pudo crear la carpeta "+name);
+      acc.push(name);
+    }
+  }
+
+  async function odUpload(viaButton){
+    const tok=await odAccess();
+    if(!tok)throw new Error("conecta la cuenta primero");
+    const p=payload(),dir=odFolder();
+    if(dir)await odEnsureFolder(tok,dir);
+    const path=(dir?seg(dir)+"/":"")+encodeURIComponent(p.filename);
+    const r=await fetch(GRAPH+"/me/drive/root:/"+path+":/content",{method:"PUT",
+      headers:{Authorization:"Bearer "+tok,"Content-Type":p.mime},body:p.blob});
+    if(!r.ok){let m="HTTP "+r.status;try{const e=await r.json();if(e.error&&e.error.message)m=e.error.message;}catch(x){}throw new Error(m);}
+    flash(viaButton,"¡En OneDrive!");toast("Guardado en OneDrive · "+(dir?dir+"/":"")+p.filename);
+    return true;
+  }
+
+  /* ===== estado de la interfaz de guardado ===== */
+  const canShareFiles=(()=>{try{return !!(navigator.share&&navigator.canShare&&navigator.canShare({files:[new File(["a"],"a.txt",{type:"text/plain"})]}));}catch(e){return false;}})();
+  const odClientEl=$("odClient"),odFolderEl=$("odFolder"),odHintEl=$("odHint"),odConnectEl=$("odConnect");
+
+  function updateSaveUI(){
+    const on=!!odToken();
+    $("shareSave").textContent = on ? "☁ Guardar en OneDrive"
+      : hasPicker ? "💾 Elegir dónde guardar"
+      : canShareFiles ? "🔗 Guardar / Compartir" : "⬇ Guardar archivo";
+    $("hint").innerHTML = on
+      ? "Guarda en OneDrive → <b>"+odFolder()+"</b>, sobrescribiendo la versión anterior. Cualquier formato."
+      : hasPicker
+        ? "Abre el explorador del sistema: eliges carpeta y nombre con cualquier formato."
+        : canShareFiles
+          ? "El menú de compartir del móvil rechaza .md y .json. Conecta OneDrive (menú ⋯) para guardarlos directamente."
+          : "Este navegador no permite compartir ni elegir carpeta desde la web. Conecta OneDrive (menú ⋯) o usa Descargar.";
+    odConnectEl.textContent = on ? "Desconectar" : "Conectar";
+    odHintEl.textContent = on
+      ? "Cuenta conectada. Cambia la carpeta cuando quieras."
+      : "Registra la app una vez en Azure, pega aquí su id y conecta.";
+  }
+
+  $("odRedirect").textContent=REDIRECT;
+  odClientEl.value=odClient();
+  odFolderEl.value=odFolder();
+  odClientEl.addEventListener("change",()=>lsSet(OD_ID,odClientEl.value.trim()));
+  odFolderEl.addEventListener("change",()=>{lsSet(OD_DIR,odFolderEl.value.trim());updateSaveUI();});
+  odConnectEl.addEventListener("click",()=>{
+    if(odToken()){lsDel(OD_TOK);updateSaveUI();toast("OneDrive desconectado");return;}
+    lsSet(OD_ID,odClientEl.value.trim());lsSet(OD_DIR,odFolderEl.value.trim());odStartLogin();
+  });
+  $("odCopy").addEventListener("click",()=>{
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(REDIRECT).then(()=>toast("URL copiada"),()=>toast("Cópiala a mano",true));
+    else toast("Cópiala a mano",true);
+  });
+  updateSaveUI();
+
+  undoBtn.addEventListener("click",()=>{if(!history.length)return;setText(history.pop());undoBtn.disabled=history.length===0;markDirty();toast("Deshecho");});
+  ta.addEventListener("input",()=>{updateCounts();markDirty();});
+
+  /* instalar PWA */
+  const standalone=matchMedia("(display-mode: standalone)").matches||window.navigator.standalone===true;
+  const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  let deferredPrompt=null;
+  window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;});
+  function doInstall(){
+    if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;});return;}
+    if(standalone){toast("Ya está instalada ✓");return;}
+    if(isIOS)toast("Pulsa Compartir ↑ y «Añadir a pantalla de inicio»");
+    else toast("Menú del navegador (⋮) → «Instalar app»");
+  }
+
+  /* manifest dinámico */
+  try{const ICON=document.querySelector('link[rel="apple-touch-icon"]').href;const here=REDIRECT;
+    const manifest={name:"Nota",short_name:"Nota",start_url:here,scope:here,display:"standalone",orientation:"portrait",background_color:"#E7E4DC",theme_color:"#E7E4DC",icons:[{src:ICON,sizes:"512x512",type:"image/png",purpose:"any maskable"}]};
+    document.getElementById("manifest").setAttribute("href",URL.createObjectURL(new Blob([JSON.stringify(manifest)],{type:"application/manifest+json"})));}catch(e){}
+
+  /* restaurar nota guardada */
+  if(storeOK){try{const t=localStorage.getItem(SKEY);const n=localStorage.getItem(NKEY);if(t!==null){ta.value=t;}if(n)setName(n);savedText.textContent=t?"Guardado":"Listo";}catch(e){}}
+  else{savedEl.style.display="none";}
+
+  buildGrid();updateCounts();odFinishLogin();
+})();
+</script>
+</body>
+</html>
